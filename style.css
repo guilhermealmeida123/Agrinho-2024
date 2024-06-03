@@ -41,7 +41,7 @@ body {
     text-align: center;
     padding: 10px 0;
   }
-{
-  img::after
-
+.imagens{
+  width: 500px;
+  height: 500px;
 }
