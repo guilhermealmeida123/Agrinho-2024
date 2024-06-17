@@ -1,56 +1,23 @@
-// Definição da classe TecnologiaCampo
-class TecnologiaCampo {
-    constructor(nome, descricao, beneficios) {
-        this.nome = nome;
-        this.descricao = descricao;
-        this.beneficios = beneficios;
-    }
-
-    // Método para formatar a exibição dos benefícios
-    formatarBeneficios() {
-        return this.beneficios.join(', ');
-    }
-}
-
-// Gerenciador de Tecnologias no Campo
-class GerenciadorTecnologias {
-    constructor() {
-        this.tecnologias = []; // Array para armazenar as tecnologias cadastradas
-    }
-
-    // Método para adicionar uma nova tecnologia
-    adicionarTecnologia(nome, descricao, beneficios) {
-        const novaTecnologia = new TecnologiaCampo(nome, descricao, beneficios);
-        this.tecnologias.push(novaTecnologia);
-    }
-
-    // Método para listar todas as tecnologias cadastradas
-    listarTecnologias() {
-        console.log('--- Tecnologias no Campo ---');
-        this.tecnologias.forEach(tecnologia => {
-            console.log(`Nome: ${tecnologia.nome}`);
-            console.log(`Descrição: ${tecnologia.descricao}`);
-            console.log(`Benefícios: ${tecnologia.formatarBeneficios()}`);
-            console.log('---------------------------');
-        });
-    }
-}
-
-// Exemplo de uso do GerenciadorTecnologias
-const gerenciador = new GerenciadorTecnologias();
-
-// Adicionando algumas tecnologias
-gerenciador.adicionarTecnologia(
-    "Sistema de Irrigação por Gotejamento",
-    "Consiste na aplicação de água diretamente na raiz das plantas através de tubos perfurados.",
-    ["Economia de água", "Redução de doenças nas plantas", "Aumento na produtividade"]
-);
-
-gerenciador.adicionarTecnologia(
-    "Sensoriamento Remoto na Agricultura",
-    "Uso de drones e satélites para monitoramento de culturas, pragas e condições climáticas.",
-    ["Detecção precoce de problemas", "Planejamento agrícola mais preciso", "Redução de custos operacionais"]
-);
-
-// Listando todas as tecnologias cadastradas
-gerenciador.listarTecnologias();
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnologia no Campo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Tecnologia no Campo</h1>
+    </header>
+    <main>
+        <section id="tecnologias-section">
+            <h2>Nossas Tecnologias</h2>
+            <div id="tecnologias-lista">
+                <!-- Aqui serão adicionadas as tecnologias dinamicamente -->
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
