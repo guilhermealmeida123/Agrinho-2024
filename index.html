@@ -1,73 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CreativeStudio</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <h1>Estúdio Almeida</h1>
-    <nav>
-      <ul>
-        <li><a href="#about">melhores estúdios da região</a></li>
-        <li><a href="#projects">modelos</a></li>
-        <li><a href="#contact">Contato está no final da página</a></li>
-      </ul>
-    </nav>
-  </header>
+// Definição da classe TecnologiaCampo
+class TecnologiaCampo {
+    constructor(nome, descricao, beneficios) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.beneficios = beneficios;
+    }
 
-  <section id="about">
-    <h2>Sobre Nós</h2>
-    <p>Somos um estúdio de design criativo, apaixonado por contar histórias visualmente cativantes.</p>
-  </section>
+    // Método para formatar a exibição dos benefícios
+    formatarBeneficios() {
+        return this.beneficios.join(', ');
+    }
+}
 
-  <section id="projects">
-    <h2>Nossos Projetos</h2>
-    <div class="project">
-      <h3>Projeto 1</h3>
-      <p>Descrição do Projeto 1.</p>
-      <img class="imagens"  src="img/img11.png" alt="Projeto 1">
-    </div>
-    <div class="project">
-      <h3>Projeto 2</h3>
-      <p>Este projeto consiste em ser mais uso profissional para gravar diversas músicas no fim que seus reprodutores extraiam perfeição de seus aúdios.</p>
-      <img class="imagens"  src="img/img22.png" alt="projeto 2">
-    </div>
-    <div>
-        <div class="project">
-        <h3>Projeto 3</h3>
-        <p>Este projeto tem como intenção levar 
-           seus reprodutores musicais a mais 
-           conforto e perfeição</p>
-        <img class="imagens" src="img/img33.png" alt="projeto 3">
-    
-    
-    
-    
-    </div>
-  </section>
+// Gerenciador de Tecnologias no Campo
+class GerenciadorTecnologias {
+    constructor() {
+        this.tecnologias = []; // Array para armazenar as tecnologias cadastradas
+    }
 
-  <section id="contact">
-    <h2>Entre em Contato conosco</h2>
-    <h2>fone (42) 9912127-31</h2>
-    <p>Estamos ansiosos para colaborar em seu próximo projeto! e vender do seu gosto os estúdios!!!!</p>
-    <form>
-      <label for="name">Nome:</label>
-      <input type="text" id="name" name="name" required>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-      <label for="message">Mensagem:</label>
-      <textarea id="message" name="message" required></textarea>
-      <button type="submit">Enviar</button>
-    </form>
-  </section>
+    // Método para adicionar uma nova tecnologia
+    adicionarTecnologia(nome, descricao, beneficios) {
+        const novaTecnologia = new TecnologiaCampo(nome, descricao, beneficios);
+        this.tecnologias.push(novaTecnologia);
+    }
 
-  <footer>
-    <p>&copy; 2024 CreativeStudio. Todos os direitos reservados.</p>
-  </footer>
+    // Método para listar todas as tecnologias cadastradas
+    listarTecnologias() {
+        console.log('--- Tecnologias no Campo ---');
+        this.tecnologias.forEach(tecnologia => {
+            console.log(`Nome: ${tecnologia.nome}`);
+            console.log(`Descrição: ${tecnologia.descricao}`);
+            console.log(`Benefícios: ${tecnologia.formatarBeneficios()}`);
+            console.log('---------------------------');
+        });
+    }
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+// Exemplo de uso do GerenciadorTecnologias
+const gerenciador = new GerenciadorTecnologias();
+
+// Adicionando algumas tecnologias
+gerenciador.adicionarTecnologia(
+    "Sistema de Irrigação por Gotejamento",
+    "Consiste na aplicação de água diretamente na raiz das plantas através de tubos perfurados.",
+    ["Economia de água", "Redução de doenças nas plantas", "Aumento na produtividade"]
+);
+
+gerenciador.adicionarTecnologia(
+    "Sensoriamento Remoto na Agricultura",
+    "Uso de drones e satélites para monitoramento de culturas, pragas e condições climáticas.",
+    ["Detecção precoce de problemas", "Planejamento agrícola mais preciso", "Redução de custos operacionais"]
+);
+
+// Listando todas as tecnologias cadastradas
+gerenciador.listarTecnologias();
