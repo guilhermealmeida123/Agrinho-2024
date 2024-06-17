@@ -48,3 +48,7 @@ main {
 .tecnologia-card p {
   margin-bottom: 10px;
 }
+.img-drone{
+  width: 600px;
+  height: 120px;
+}
